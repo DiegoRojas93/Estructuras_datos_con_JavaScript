@@ -1,7 +1,11 @@
 class MyArray {
     constructor() {
-        this.length = 0;
-        this.data = {}
+        this.length = 3;
+        this.data = {
+            0: "Jesus",
+            1: "Maria",
+            2: "Diego"
+        }
     }
 
     get(index) {
@@ -38,16 +42,26 @@ class MyArray {
         delete this.data[this.length - 1]
         this.length--
     }
+
+    unShip(item) {
+
+        if (item) {
+            for (let i = 0; i < this.length; i++) {
+                this.data[i + 1] = this.data[i + 1]
+                console.log(i);
+            }
+    
+            this.data[0] = item
+            this.length++
+    
+            console.log(this.data, this.length);
+        }
+    }
 }
 
 const myArray = new MyArray()
 
-myArray.push('Jesus')
-myArray.push('Diego')
-myArray.push('Maria')
+// console.log(myArray.data);
 
-console.log(myArray.data, '\n');
-
-myArray.delete(1)
-
-console.log(myArray.data);
+myArray.unShip()
+myArray.unShip('Beto')
